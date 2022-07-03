@@ -19,11 +19,10 @@
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
 
-//
-//
 
 /* Metatdata */
-#define VENDOR_ID 0xFEED
+#define DEVICE_VER 0x0001
+#define VENDOR_ID  0xFEED
 #define PRODUCT_ID 0x5678
 
 /* Physical configuration */
