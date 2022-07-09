@@ -11,3 +11,5 @@
         { KC_P1, KC_P2,   KC_P3,   KC_PPLS }, \
         { KC_P0, KC_PEQL, KC_PDOT, KC_PMNS  } \
 }
+
+#define LAYOUT_one( KC_0 ) { { KC_0 } }

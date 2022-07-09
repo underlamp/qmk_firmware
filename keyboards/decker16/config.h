@@ -23,16 +23,18 @@
 /* Metatdata */
 #define DEVICE_VER 0x0001
 #define VENDOR_ID  0xFEED
-#define PRODUCT_ID 0x5678
+#define PRODUCT_ID 0x1234
 
 /* Physical configuration */
-#define MATRIX_ROWS 4
-#define MATRIX_COLS 4
+#define MATRIX_ROWS 1
+#define MATRIX_COLS 1
 
 // Pin definition can be studied at qmk_firmware/platforms/chibios/_pin_defs.h
-#define MATRIX_ROW_PINS \
-    { D1, D3, D5, D7 }
-#define MATRIX_COL_PINS \
-    { D2, D4, D6, B3 }
+// #define MATRIX_ROW_PINS \
+//     { D1, D3, D5, D7 }
+// #define MATRIX_COL_PINS \
+//     { D2, D4, D6, B3 }
 
+#define MATRIX_ROW_PINS { D1 }
+#define MATRIX_COL_PINS { D2 }
 #define DIODE_DIRECTION COL2ROW // COL2ROW := Black mark of the diode is facing to the rows.
