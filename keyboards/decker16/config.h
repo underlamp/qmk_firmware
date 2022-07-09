@@ -30,11 +30,7 @@
 #define MATRIX_COLS 1
 
 // Pin definition can be studied at qmk_firmware/platforms/chibios/_pin_defs.h
-// #define MATRIX_ROW_PINS \
-//     { D1, D3, D5, D7 }
-// #define MATRIX_COL_PINS \
-//     { D2, D4, D6, B3 }
-
 #define MATRIX_ROW_PINS { D1 }
 #define MATRIX_COL_PINS { D2 }
 #define DIODE_DIRECTION COL2ROW // COL2ROW := Black mark of the diode is facing to the rows.
+
