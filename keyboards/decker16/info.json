@@ -3,13 +3,5 @@
     "keyboard_name": "decker16",
     "maintainer": "siraphobk",
     "bootloader": "stm32-dfu",
-    "features": {
-        "bootmagic": true,
-        "command": true,
-        "console": true,
-        "extrakey": true,
-        "mousekey": true,
-        "nkro": true
-    },
     "processor": "STM32F407"
 }
