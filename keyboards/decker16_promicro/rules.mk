@@ -1,7 +1,11 @@
-# This file intentionally left blank
+MCU = atmega32u4
+BOOTLOADER = caterina
 
-ENCODER_ENABLE = yes
-RGB_MATRIX_ENABLE = yes
+ENCODER_ENABLE = no
+RGB_MATRIX_ENABLE = no
 RGB_MATRIX_DRIVER = WS2812
 WS2812_DRIVER = bitbang
+
+OLED_ENABLE = yes
+OLED_DRIVER = SSD1306
 

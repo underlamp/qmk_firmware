@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "config_common.h"
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
@@ -31,5 +33,5 @@
 #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #define ENABLE_RGB_MATRIX_PIXEL_FLOW
 
-#define RGB_MATRIX_KEYPRESSES
-#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
+//#define RGB_MATRIX_KEYPRESSES
+//#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
