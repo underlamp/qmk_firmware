@@ -13,9 +13,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └───────┴───┴───┘
      */
     [0] = LAYOUT_decker16( \
-        KC_7, KC_8,    KC_9,    KC_NO,   \
-        KC_4, KC_5,    KC_6,    RGB_TOG, \
-        KC_1, KC_2,    KC_3,    RGB_VAI, \
-        KC_0, KC_PEQL, KC_DOT,  RGB_VAD  \
-    )
+        RGB_M_R, KC_8,    KC_9,    KC_NO,   \
+        RGB_M_SW, KC_5,    RGB_MOD, RGB_TOG, \
+        KC_1, KC_2,    RGB_HUI, RGB_VAI, \
+        KC_0, KC_PEQL, RGB_HUD, RGB_VAD  \
+)
 };
