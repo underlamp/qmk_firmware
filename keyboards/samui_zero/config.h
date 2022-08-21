@@ -3,18 +3,12 @@
 
 #pragma once
 
-/*
- * Feature disable options
- *  These options are also useful to firmware size reduction.
- */
+#include "config_common.h"
 
-/* disable debug print */
-//#define NO_DEBUG
-
-/* disable print */
-//#define NO_PRINT
-
-/* disable action features */
-//#define NO_ACTION_LAYER
-//#define NO_ACTION_TAPPING
-//#define NO_ACTION_ONESHOT
+#define MANUFACTURER Underlamp
+#define PRODUCT SamuiZero
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 4
+#define MATRIX_ROWS_PINS { D0, D1, D2, D3, D4, D5 }
+#define MATRIX_COLS_PINS { D0, D1, D2, D3 }
+#define DIODE_DIRECTION COL2ROW
