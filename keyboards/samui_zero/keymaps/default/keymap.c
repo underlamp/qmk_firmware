@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT( \
+    [0] = LAYOUT_samui_zero( \
       KC_NUM_LOCK, KC_KP_ASTERISK, KC_KP_SLASH, KC_KP_MINUS, \
       KC_KP_7,     KC_KP_8,        KC_KP_9,     KC_KP_PLUS,  \
       KC_KP_4,     KC_KP_5,        KC_KP_6,                  \
