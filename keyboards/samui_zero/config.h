@@ -5,3 +5,5 @@
 
 #include "config_common.h"
 
+#define OLED_BRIGHTNESS       255
+#define OLED_DISPLAY_128X64
