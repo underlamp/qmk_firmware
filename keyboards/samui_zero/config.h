@@ -7,3 +7,6 @@
 
 #define OLED_BRIGHTNESS       255
 #define OLED_DISPLAY_128X64
+
+#define ENCODERS_PAD_A { B6 }
+#define ENCODERS_PAD_B { B2 }
