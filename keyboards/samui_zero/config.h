@@ -10,3 +10,9 @@
 
 #define ENCODERS_PAD_A { B6 }
 #define ENCODERS_PAD_B { B2 }
+
+/*
+ * NKRO is not enabled by default. Has to force it to enable. See link for more info.
+ * https://www.reddit.com/r/MechanicalKeyboards/comments/85mn0v/psa_promicro_etc_atmega32u4_running_qmk_usually/
+ * */
+#define FORCE_NKRO
