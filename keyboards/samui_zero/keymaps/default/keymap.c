@@ -1,4 +1,6 @@
 #include QMK_KEYBOARD_H
+#include "raw_hid.h"
+#include "print.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_samui_zero( \
@@ -9,4 +11,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_KP_0,                     KC_KP_DOT                 \
     )
 };
+
+// Communicate 2-way with host via HID_RAW
+#ifdef RAW_ENABLE
+void raw_hid_receive(uint8_t* data, uint8_t length) {
+#ifdef CONSOLE_ENABLE
+    dprint("Received USB data from host system:\n");
+    dprintf("%s\n", data);
+#endif
+    raw_hid_send(data, length);
+}
+#endif
 

@@ -16,3 +16,6 @@
  * https://www.reddit.com/r/MechanicalKeyboards/comments/85mn0v/psa_promicro_etc_atmega32u4_running_qmk_usually/
  * */
 #define FORCE_NKRO
+
+#define RAW_USAGE_PAGE 0xFF60
+#define RAW_USAGE_ID 0x61
