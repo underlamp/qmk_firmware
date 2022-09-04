@@ -12,8 +12,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-// Communicate 2-way with host via HID_RAW
 #ifdef RAW_ENABLE
+
 void raw_hid_receive(uint8_t* data, uint8_t length) {
 #ifdef CONSOLE_ENABLE
     dprint("Received USB data from host system:\n");
@@ -21,5 +21,6 @@ void raw_hid_receive(uint8_t* data, uint8_t length) {
 #endif
     raw_hid_send(data, length);
 }
+
 #endif
 

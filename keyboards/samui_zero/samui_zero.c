@@ -1,5 +1,6 @@
 #include "samui_zero.h"
 #include "print.h"
+#include "raw_hid.h"
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
