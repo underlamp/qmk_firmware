@@ -12,6 +12,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
+// This board uses EPSIZE=32bytes
 #ifdef RAW_ENABLE
 
 void raw_hid_receive(uint8_t* data, uint8_t length) {
