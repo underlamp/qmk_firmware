@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "raw_hid.h"
 #include "print.h"
+#include "string.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_samui_zero( \
@@ -17,10 +18,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 void raw_hid_receive(uint8_t* data, uint8_t length) {
 #ifdef CONSOLE_ENABLE
-    dprint("Received USB data from host system:\n");
-    dprintf("%s\n", data);
+    uprint("Received USB data from host system:\n");
+    uprintf("%s\n", data);
 #endif
     raw_hid_send(data, length);
+
+    char pc_resource[4];
+    memcpy(pc_resource, data, 3);
+    pc_resource[3] = '\0';
+
+    if (strcmp(pc_resource, "cpu") == 0) {
+        oled_set_cursor(0, 0);
+    }
+    if (strcmp(pc_resource, "mem") == 0) {
+        oled_set_cursor(0, 1);
+    }
+
+    oled_write_ln((char *)data, false);
 }
 
 #endif
