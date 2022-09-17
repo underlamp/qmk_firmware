@@ -1,10 +1,25 @@
 import hid
+import psutil
+from time import sleep
+
+
+def get_cpu_percent() -> float:
+    return psutil.cpu_percent(0.1)
+
+
+def get_vmem_percent() -> float:
+    return psutil.virtual_memory().percent
 
 
 def pad_message(payload: bytes) -> bytes:
     if len(payload) > EP_SIZE:
         raise ('payload is too large: maximum payload is', str(EP_SIZE))
     return payload + b'\x00' * (EP_SIZE - len(payload))
+
+
+def percent_format(n: float) -> str:
+    txt = '{:06.2f}'
+    return txt.format(n)
 
 
 class Keyboard:
@@ -42,7 +57,7 @@ class Keyboard:
             bytes: The message received from the device.
         """
         self.send(payload)
-        return self.read(self.ep_size)
+        return self.read()
 
     def close(self):
         self.device.close()
@@ -60,4 +75,16 @@ keyboard = Keyboard(ep_size=EP_SIZE,\
                     usage_page=usage_page,\
                     usage_id=usage_id)
 keyboard.print_device_info()
+
+while True:
+    cpu = percent_format(get_cpu_percent())
+    mem = percent_format(get_vmem_percent())
+
+    cpu_message = 'cpu' + cpu
+    mem_message = 'mem' + mem
+
+    print(keyboard.transceive(cpu_message.encode()))
+    print(keyboard.transceive(mem_message.encode()))
+    sleep(1)
+
 keyboard.close()
