@@ -7,7 +7,7 @@
         "bootmagic": true
     },
     "matrix_pins": {
-        "cols": ["F7", "F6", "F5", "F4"],
+        "cols": ["B1", "F7", "F6", "F5", "F4"],
         "rows": ["D4", "C6", "D7", "E6", "B4"]
     },
     "url": "",
