@@ -1,6 +1,9 @@
 #include "samui_zero.h"
+#include "encoder.h"
 #include "print.h"
 #include "raw_hid.h"
+// #include "rgb_matrix.h"
+// #include "rgb_matrix_types.h"
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
@@ -45,19 +48,11 @@ bool oled_task_kb(void) {
 
 #endif
 
-#ifdef ENCODER_ENABLE
+// #ifdef ENCODER_ENABLE
 bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        if (clockwise) {
-            tap_code_delay(KC_VOLU, 10);
-        } else {
-            tap_code_delay(KC_VOLD, 10);
-        }
-    }
-
-    return false;
+  return encoder_update_user(index, clockwise);
 }
-#endif
+// #endif
 
 // ref: https://www.reddit.com/r/olkb/comments/og1q4u/listen_for_every_keypress_with_qmk/
 bool g_bongo_state = false;
@@ -80,3 +75,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+/*
+// RGB Matrix
+
+led_config_t g_led_config = {
+  // Key Matrix to LED Index
+  {
+    { 0,  1,  2,   3 },
+    { 4,  5,  6,   7 },
+    { 8,  9,  10     },
+    { 11, 12, 13, 14 },
+    { 15,     16     }
+  },
+  // LED Index to Physical Position
+  {
+    { 0, 0 },  { 81, 0  }, { 162, 0  }, { 244, 0 },
+    { 0, 16 }, { 81, 16 }, { 162, 16 }, { 244, 16 },
+    { 0, 32 }, { 81, 32 }, { 162, 32 },
+    { 0, 48 }, { 81, 48 }, { 162, 48 }, { 244, 48 },
+    { 0, 64 },             { 162, 64 }
+  },
+  // LED Index to Flag
+  { 4, 4, 4, 4, 
+    4, 4, 4, 4,
+    4, 4, 4,
+    4, 4, 4, 4,
+    4,    4
+  },
+};
+*/

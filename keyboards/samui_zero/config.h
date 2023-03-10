@@ -5,11 +5,15 @@
 
 #include "config_common.h"
 
-#define OLED_BRIGHTNESS       255
+#define OLED_BRIGHTNESS 255
 #define OLED_DISPLAY_128X64
 
 #define ENCODERS_PAD_A { B6 }
 #define ENCODERS_PAD_B { B2 }
+#define ENCODER_RESOLUTION 4
+
+#define RGB_DI_PIN B3
+#define DRIVER_LED_TOTAL 17
 
 /*
  * NKRO is not enabled by default. Has to force it to enable. See link for more info.
@@ -18,4 +22,13 @@
 #define FORCE_NKRO
 
 #define RAW_USAGE_PAGE 0xFF60
-#define RAW_USAGE_ID   0x61
+#define RAW_USAGE_ID 0x61
+
+/*
+ * LED Matrix Effect
+ * */
+
+#define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
+#define ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
+#define ENABLE_RGB_MATRIX_RAINDROPS
+#define ENABLE_RGB_MATRIX_PIXEL_RAIN

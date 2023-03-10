@@ -1,3 +1,6 @@
+#include "action.h"
+#include "encoder.h"
+#include "keycode.h"
 #include QMK_KEYBOARD_H
 #include "raw_hid.h"
 #include "print.h"
@@ -5,12 +8,12 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_samui_zero( \
-        KC_NUM_LOCK, KC_KP_ASTERISK, KC_KP_SLASH, KC_KP_MINUS,  KC_NO, \
-        KC_KP_7,     KC_KP_8,        KC_KP_9,     KC_KP_PLUS,          \
-        KC_KP_4,     KC_KP_5,        KC_KP_6,                          \
-        KC_KP_1,     KC_KP_2,        KC_KP_3,     KC_KP_ENTER,         \
-        KC_KP_0,                     KC_KP_DOT                         \
-    )
+    KC_NUM_LOCK, KC_KP_ASTERISK, KC_KP_SLASH, KC_KP_MINUS,  RGB_MODE_FORWARD	, \
+    KC_KP_7,     KC_KP_8,        KC_KP_9,     KC_KP_PLUS,          \
+    KC_KP_4,     KC_KP_5,        KC_KP_6,                          \
+    KC_KP_1,     KC_KP_2,        KC_KP_3,     KC_KP_ENTER,         \
+    KC_KP_0,                     KC_KP_DOT                         \
+)
 };
 
 // This board uses EPSIZE=32bytes
@@ -39,3 +42,17 @@ void raw_hid_receive(uint8_t* data, uint8_t length) {
 
 #endif
 
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) {
+        if (clockwise) {
+          tap_code(KC_PGUP);
+            // tap_code_delay(KC_VOLU, 10);
+        } else {
+          tap_code(KC_PGDN);
+            // tap_code_delay(KC_VOLD, 10);
+        }
+    }
+
+    return false;
+}
