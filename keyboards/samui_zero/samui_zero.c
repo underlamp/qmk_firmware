@@ -84,7 +84,7 @@ led_config_t g_led_config = {
       {4,  5,  6,      7,      NO_LED }, \
       {8,  9,  10,     NO_LED, NO_LED }, \
       {11, 12, 13,     14,     NO_LED }, \
-      {15, 16, NO_LED, NO_LED, NO_LED }  \
+      {15, NO_LED, 16, NO_LED, NO_LED }  \
     },
     // LED Index to Physical Position
     { 
@@ -96,7 +96,7 @@ led_config_t g_led_config = {
     },
     // LED Index to Flag
     { 
-      4, 4, 4, 4, \
+      1, 4, 4, 4, \
       4, 4, 4, 4, \
       4, 4, 4,    \
       4, 4, 4, 4, \
