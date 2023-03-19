@@ -3,17 +3,17 @@
 
 #pragma once
 
-#include "config_common.h"
-
 #define OLED_BRIGHTNESS 255
 #define OLED_DISPLAY_128X64
 
-#define ENCODERS_PAD_A { B6 }
-#define ENCODERS_PAD_B { B2 }
+#define ENCODERS_PAD_A \
+    { B6 }
+#define ENCODERS_PAD_B \
+    { B2 }
 #define ENCODER_RESOLUTION 4
 
 #define RGB_DI_PIN B3
-#define DRIVER_LED_TOTAL 17
+#define RGB_MATRIX_LED_COUNT 17
 
 /*
  * NKRO is not enabled by default. Has to force it to enable. See link for more info.
