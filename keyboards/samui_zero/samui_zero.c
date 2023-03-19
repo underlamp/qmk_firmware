@@ -2,8 +2,8 @@
 #include "encoder.h"
 #include "print.h"
 #include "raw_hid.h"
-// #include "rgb_matrix.h"
-// #include "rgb_matrix_types.h"
+#include "rgb_matrix.h"
+#include "rgb_matrix_types.h"
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
@@ -50,7 +50,7 @@ bool oled_task_kb(void) {
 
 // #ifdef ENCODER_ENABLE
 bool encoder_update_kb(uint8_t index, bool clockwise) {
-  return encoder_update_user(index, clockwise);
+    return encoder_update_user(index, clockwise);
 }
 // #endif
 
@@ -59,49 +59,29 @@ bool g_bongo_state = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
-  uprintf("KL: kc: 0x%04X, col: %2u, row: %2u, pressed: %u, time: %5u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed, record->event.time);
+    uprintf("KL: kc: 0x%04X, col: %2u, row: %2u, pressed: %u, time: %5u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed, record->event.time);
 #endif
 
-  if (record->event.pressed) {
-
+    if (record->event.pressed) {
 #ifdef OLED_ENABLE
-    if (g_bongo_state) {
-        render_bongo_down();
-    } else {
-        render_bongo_raise();
-    }
-    g_bongo_state = !g_bongo_state;
+        if (g_bongo_state) {
+            render_bongo_down();
+        } else {
+            render_bongo_raise();
+        }
+        g_bongo_state = !g_bongo_state;
 #endif
-  }
-  return true;
+    }
+    return true;
 }
 
-/*
 // RGB Matrix
 
 led_config_t g_led_config = {
-  // Key Matrix to LED Index
-  {
-    { 0,  1,  2,   3 },
-    { 4,  5,  6,   7 },
-    { 8,  9,  10     },
-    { 11, 12, 13, 14 },
-    { 15,     16     }
-  },
-  // LED Index to Physical Position
-  {
-    { 0, 0 },  { 81, 0  }, { 162, 0  }, { 244, 0 },
-    { 0, 16 }, { 81, 16 }, { 162, 16 }, { 244, 16 },
-    { 0, 32 }, { 81, 32 }, { 162, 32 },
-    { 0, 48 }, { 81, 48 }, { 162, 48 }, { 244, 48 },
-    { 0, 64 },             { 162, 64 }
-  },
-  // LED Index to Flag
-  { 4, 4, 4, 4, 
-    4, 4, 4, 4,
-    4, 4, 4,
-    4, 4, 4, 4,
-    4,    4
-  },
+    // Key Matrix to LED Index
+    {{0, 1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10}, {11, 12, 13, 14}, {15, 16}},
+    // LED Index to Physical Position
+    {{0, 0}, {81, 0}, {162, 0}, {244, 0}, {0, 16}, {81, 16}, {162, 16}, {244, 16}, {0, 32}, {81, 32}, {162, 32}, {0, 48}, {81, 48}, {162, 48}, {244, 48}, {0, 64}, {162, 64}},
+    // LED Index to Flag
+    {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4},
 };
-*/
